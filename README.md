@@ -1,2 +1,0 @@
-# menuAngularNovo
-Menu angular ajustado
