@@ -1,0 +1,19 @@
+<div mat-dialog-content>
+    <h4>Ambiente</h4>
+    <br>
+    <mat-form-field [ngStyle]="{'width.px': 500}">
+        <input matInput placeholder="Desenvolvimento:" [(ngModel)]="data.desenvolvimento">
+    </mat-form-field>
+    <br>
+    <mat-form-field [ngStyle]="{'width.px': 500}">
+        <input matInput placeholder="Homologação:" [(ngModel)]="data.homologacao">
+    </mat-form-field>
+    <br>
+    <mat-form-field [ngStyle]="{'width.px': 500}">
+        <input matInput placeholder="Produção:" [(ngModel)]="data.producao">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Salvar</button>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+</div>

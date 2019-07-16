@@ -3,7 +3,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { A11yModule } from '@angular/cdk/a11y';
 import { BidiModule } from '@angular/cdk/bidi';
 import { ObserversModule } from '@angular/cdk/observers';
@@ -40,7 +39,8 @@ import {
     MatSnackBarModule,
     MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatFormFieldModule,
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
@@ -53,11 +53,18 @@ import { MenusModule } from './menus/menus.module';
 import { MenuListItemComponent } from './menus/menu-list-item/menu-list-item.component';
 import { TopoNavegadorComponent } from './menus/topo-navegador/topo-navegador.component';
 import { NavegadorService } from './menus/navegador/navegador.service';
+import { DialogsModule } from './dialogs/dialogs.module';
+import { FormulariosComponent } from './formularios/formularios.component';
 
 /**
  * NgModule that includes all Material modules that are required.
  */
 @NgModule({
+    declarations: [
+        MenuListComponent,
+        MenuComponent,
+        FormulariosComponent
+    ],
     exports: [
         // CDK
         A11yModule,
@@ -98,8 +105,8 @@ import { NavegadorService } from './menus/navegador/navegador.service';
         MatToolbarModule,
         MatTooltipModule,
         MatNativeDateModule,
-    ],
-    declarations: [MenuListComponent, MenuComponent]
+        MatFormFieldModule
+    ]
 })
 export class MaterialModule { }
 
@@ -119,7 +126,8 @@ export class MaterialModule { }
         FlexLayoutModule,
         AppRoutingModule,
         HttpClientModule,
-        MenusModule
+        MenusModule,
+        DialogsModule
     ],
     bootstrap: [AppComponent],
     providers: [NavegadorService]
