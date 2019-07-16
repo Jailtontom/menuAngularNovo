@@ -1,0 +1,49 @@
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- Coluna Desenvolvimento -->
+        <ng-container matColumnDef="desenvolvimento">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Desenvolvimento </th>
+            <td mat-cell *matCellDef="let row"> {{row.desenvolvimento}} </td>
+        </ng-container>
+
+        <!-- Coluna Homologação -->
+        <ng-container matColumnDef="homologacao">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Homologação </th>
+            <td mat-cell *matCellDef="let row"> {{row.homologacao}} </td>
+        </ng-container>
+
+        <!-- Coluna Produção -->
+        <ng-container matColumnDef="producao">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Produção </th>
+            <td mat-cell *matCellDef="let row"> {{row.producao}} </td>
+        </ng-container>
+
+        <!-- Coluna botaoAlterar -->
+        <ng-container matColumnDef="botaoAlterar">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let row">
+                <app-botao-alterar [(desenvolvimento)]=row.desenvolvimento [(homologacao)]=row.homologacao [(producao)]=row.producao></app-botao-alterar>
+            </td>
+        </ng-container>
+
+        <!-- Coluna botaoDeletar -->
+        <ng-container matColumnDef="botaoDeletar">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let row">
+                <app-botao-deletar></app-botao-deletar>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

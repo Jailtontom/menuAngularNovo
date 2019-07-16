@@ -3,12 +3,16 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { PrimeiraComponent } from './primeira.component';
+import { AbasNavegacaoModule } from 'src/app/sites/abas-navegacao/abas-navegacao.module';
 
 @NgModule({
-    declarations: [PrimeiraComponent],
+    declarations: [
+            PrimeiraComponent
+    ],
     imports: [
         CommonModule,
-        HttpClientModule
+        HttpClientModule,
+        AbasNavegacaoModule
     ],
     exports: [PrimeiraComponent]
 })

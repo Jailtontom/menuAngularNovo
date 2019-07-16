@@ -4,7 +4,9 @@ import { CommonModule } from '@angular/common';
 import { MenuListItemComponent } from './menu-list-item.component';
 
 @NgModule({
-    declarations: [MenuListItemComponent],
+    declarations: [
+        MenuListItemComponent
+    ],
     imports: [
         CommonModule
     ],
