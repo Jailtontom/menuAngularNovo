@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnChanges } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -14,7 +14,7 @@ import { AmbienteService } from '../ambiente.service';
     templateUrl: './tabela-ambiente.component.html',
     styleUrls: ['./tabela-ambiente.component.css']
 })
-export class TabelaAmbienteComponent implements OnInit {
+export class TabelaAmbienteComponent implements OnInit, OnChanges {
     displayedColumns: string[] = ['desenvolvimento', 'homologacao', 'producao', 'botaoAlterar', 'botaoDeletar'];
     dataSource: MatTableDataSource<Ambiente>;
 
@@ -29,11 +29,16 @@ export class TabelaAmbienteComponent implements OnInit {
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
         });
+    }
+
+    ngOnChanges(): void {
+        console.log('Chamou');
 
         this.ambienteService.desenvolvimentoConfirmado$.subscribe(ambiente => {
-            this.dataSource = new MatTableDataSource(this.ambienteService.listaGridAmbiente(ambiente));
+            this.dataSource = new MatTableDataSource(this.ambienteService.atualizaGridAmbiente(ambiente));
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
+            
         });
     }
 

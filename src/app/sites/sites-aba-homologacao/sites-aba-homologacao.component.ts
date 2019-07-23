@@ -9,19 +9,15 @@ const COLORS: string[] = [
   'aqua', 'blue', 'navy', 'black', 'gray'
 ];
 const NAMES: string[] = [
-  'Sistemas', 'Recursos Humanos', 'Benefícios', 'Contatos e Departamentos', 'Serviços Corporativos', 
-  'Formulários', 'Normas, Manuais, Circulares e Políticas', 'Home Office', 'Conhecimento e Educação', 
-  'Voluntariado e Doações', '#eumeimPORTO', 
-  'Publicações', 'Sócio e Ambiental', 'Fale com'
+  'Sistemas', 'Benefícios', 'Homologação sistemas', 'Homologação benefícios'
 ];
 
 @Component({
-  selector: 'app-sites-aba-desenvolvimento',
-  templateUrl: './sites-aba-desenvolvimento.component.html',
-  styleUrls: ['./sites-aba-desenvolvimento.component.css']
+  selector: 'app-sites-aba-homologacao',
+  templateUrl: './sites-aba-homologacao.component.html',
+  styleUrls: ['./sites-aba-homologacao.component.css']
 })
-export class SitesAbaDesenvolvimentoComponent implements OnInit {
-
+export class SitesAbaHomologacaoComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name'];
   dataSource: MatTableDataSource<UserData>;
 

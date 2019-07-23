@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { SitesAbaDesenvolvimentoComponent } from './sites-aba-desenvolvimento.component';
 import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+
+import { SitesAbaProducaoComponent } from './sites-aba-producao.component';
 
 @NgModule({
     declarations: [
-        SitesAbaDesenvolvimentoComponent
+        SitesAbaProducaoComponent
     ],
     imports: [
         CommonModule,
         MatInputModule,
         MatTableModule,
         MatPaginatorModule,
-        MatSortModule,
+        MatSortModule
     ],
     exports: [
-        SitesAbaDesenvolvimentoComponent
+        SitesAbaProducaoComponent
     ]
 })
-export class SitesAbaDesenvolvimentoModule { }
+export class SitesAbaProducaoModule { }
