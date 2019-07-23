@@ -14,3 +14,4 @@ export class QuartaComponent implements OnInit {
 
 }
 
+

@@ -2,26 +2,22 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
 import { UserData } from '../userdata';
- 
+
 /** Constants used to fill up our data base. */
 const COLORS: string[] = [
   'maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple', 'fuchsia', 'lime', 'teal',
   'aqua', 'blue', 'navy', 'black', 'gray'
 ];
 const NAMES: string[] = [
-  'Sistemas', 'Recursos Humanos', 'Benefícios', 'Contatos e Departamentos', 'Serviços Corporativos', 
-  'Formulários', 'Normas, Manuais, Circulares e Políticas', 'Home Office', 'Conhecimento e Educação', 
-  'Voluntariado e Doações', '#eumeimPORTO', 
-  'Publicações', 'Sócio e Ambiental', 'Fale com'
+  'Sistemas', 'Benefícios'
 ];
-
+ 
 @Component({
-  selector: 'app-sites-aba-desenvolvimento',
-  templateUrl: './sites-aba-desenvolvimento.component.html',
-  styleUrls: ['./sites-aba-desenvolvimento.component.css']
+  selector: 'app-sites-aba-producao',
+  templateUrl: './sites-aba-producao.component.html',
+  styleUrls: ['./sites-aba-producao.component.css']
 })
-export class SitesAbaDesenvolvimentoComponent implements OnInit {
-
+export class SitesAbaProducaoComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name'];
   dataSource: MatTableDataSource<UserData>;
 

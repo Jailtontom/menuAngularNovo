@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatTabsModule } from '@angular/material';
 
 import { AbasNavegacaoComponent } from './abas-navegacao.component';
-import { MatTabsModule } from '@angular/material';
 import { SitesAbaDesenvolvimentoModule } from '../sites-aba-desenvolvimento/sites-aba-desenvolvimento.module';
+import { SitesAbaHomologacaoModule } from '../sites-aba-homologacao/sites-aba-homologacao.module';
+import { SitesAbaProducaoModule } from '../sites-aba-producao/sites-aba-producao.module';
 
 @NgModule({
     declarations: [
@@ -12,7 +14,9 @@ import { SitesAbaDesenvolvimentoModule } from '../sites-aba-desenvolvimento/site
     imports: [
         CommonModule,
         MatTabsModule,
-        SitesAbaDesenvolvimentoModule
+        SitesAbaDesenvolvimentoModule,
+        SitesAbaHomologacaoModule,
+        SitesAbaProducaoModule
     ],
     exports: [
         AbasNavegacaoComponent
