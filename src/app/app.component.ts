@@ -15,15 +15,73 @@ export class AppComponent implements AfterViewInit, OnInit {
     @ViewChild('appDrawer', { static: true }) appDrawer: ElementRef;
     version = VERSION;
 
-    menu: Menu[] = [];
+    menu: Menu[] = [
+        {
+            "displayName": "Início",
+            "iconName": "",
+            "route": ""
+        },
+        {
+            "displayName": "Sites",
+            "iconName": "recent_actors",
+            "route": "",
+            "children": [
+                {
+                    "displayName": "Portonet",
+                    "iconName": "",
+                    "route": "devfestfl/speakers/stephen-fluin/what-up-web"
+                }
+            ]
+        },
+        {
+            "displayName": "Painel de Administração",
+            "iconName": "person",
+            "route": "",
+            "children": [
+                {
+                    "displayName": "Gerenciar Sites",
+                    "iconName": "",
+                    "route": "devfestfl/speakers/mike-brocchi/my-ally-cli"
+                },
+                {
+                    "displayName": "Listar Permissões",
+                    "iconName": "",
+                    "route": ""
+                }
+            ]
+        },
+        {
+            "displayName": "Ambientes",
+            "iconName": "star_rate",
+            "route": "devfestfl/speakers/mike-brocchi/become-angular-tailer"
+        },
+        {
+            "displayName": "Auditoria",
+            "iconName": "speaker_notes",
+            "route": "",
+            "children": [
+                {
+                    "displayName": "Console",
+                    "iconName": "",
+                    "route": ""
+                },
+                {
+                    "displayName": "portonet",
+                    "iconName": "",
+                    "route": ""
+                }
+            ]
+        },
+        {
+            "displayName": "Logout",
+            "iconName": "feedback",
+            "route": ""
+        }
+    ];
 
-    constructor(private navegadorService: NavegadorService, private menuService: MenuService) { }
+    constructor(private navegadorService: NavegadorService) { }
 
-    ngOnInit(): void {
-        this.menuService.listaMenus().subscribe(menu => {
-            this.menu = this.menuService.montaMenu(menu);
-        });
-    }
+    ngOnInit(): void { }
 
     ngAfterViewInit() {
         this.navegadorService.appDrawer = this.appDrawer;

@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild, OnChanges } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { Ambiente } from '../ambiente';
 import { AmbienteService } from '../ambiente.service';
+import { UserData } from 'src/app/sites/userdata';
 
 /**
  * @title Data table with sorting, pagination, and filtering.
@@ -14,32 +15,25 @@ import { AmbienteService } from '../ambiente.service';
     templateUrl: './tabela-ambiente.component.html',
     styleUrls: ['./tabela-ambiente.component.css']
 })
-export class TabelaAmbienteComponent implements OnInit, OnChanges {
+export class TabelaAmbienteComponent implements OnInit {
     displayedColumns: string[] = ['desenvolvimento', 'homologacao', 'producao', 'botaoAlterar', 'botaoDeletar'];
     dataSource: MatTableDataSource<Ambiente>;
 
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-    constructor(private ambienteService: AmbienteService) { }
+    //constructor(private ambienteService: AmbienteService) { }
+    constructor() {
+        // Create 100 users
+        const users = Array.from({ length: 150 }, (_, k) => createNewUser(k + 1));
 
-    ngOnInit() {
-        this.ambienteService.listaAmbientes().subscribe(ambiente => {
-            this.dataSource = new MatTableDataSource(this.ambienteService.listaGridAmbiente(ambiente));
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
-        });
+        // Assign the data to the data source for the table to render
+        this.dataSource = new MatTableDataSource(users);
     }
 
-    ngOnChanges(): void {
-        console.log('Chamou');
-
-        this.ambienteService.desenvolvimentoConfirmado$.subscribe(ambiente => {
-            this.dataSource = new MatTableDataSource(this.ambienteService.atualizaGridAmbiente(ambiente));
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
-            
-        });
+    ngOnInit() {
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
     }
 
     applyFilter(filterValue: string) {
@@ -50,4 +44,12 @@ export class TabelaAmbienteComponent implements OnInit, OnChanges {
         }
     }
 
+}
+
+function createNewUser(id: number): Ambiente {
+    return {
+        desenvolvimento: "http://desenvolvimento" + id + ".com.br",
+        homologacao: "http://homologacao" + id + ".com.br",
+        producao: "http://producao" + id + ".com.br"
+      };
 }
